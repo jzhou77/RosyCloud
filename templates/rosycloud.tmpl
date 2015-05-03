@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+function help {
+    echo "Usage:"
+    echo "$0 run [sub-commands]|stop"
+
+    exit -1
+}
+
+# program name
+PNAME=rosycloud
+
+case $1 in
+run)
+    # use interpreter from virtual environment
+    alias python="VIRTUALENV_HOME/bin/python"
+    # active virtual environment
+    source VIRTUALENV_HOME/bin/activate
+    
+    # enter source directory, because some configuration file there
+    cd SRC_HOME
+    shift
+    # HERE WE GO!
+    python ${PNAME}.py $@
+    ;;
+stop)
+    PS="ps aux"
+    kill `$PS | grep $PNAME | awk '{ print $2 }'`
+    # deactivate virtual environment
+    deactivate
+    ;;
+*)
+    echo "Unrecognized command line parameter $1."
+    help $0
+esac

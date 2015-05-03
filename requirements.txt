@@ -1,0 +1,8 @@
+argparse>=1.1
+azure
+google-api-python-client
+httplib2
+pathtools>=0.1.2
+pyinotify
+python-gnupg
+python-dateutil

@@ -1,0 +1,18 @@
+# This is global configuration file for RosyCloud
+SRC_DIR=$HOME/RosyCloud
+SYS_DIR=$HOME/.rosycloud
+
+# home directory for gnu pgp encryption tools, these directory
+# can be empty (no problem, we will help you populate it)
+# However, they *MUST* exist.
+GPG_HOME=$HOME/.rosycloud/gpghome
+GPG_FILE=$HOME/.rosycloud/gpghome/keys
+
+# exclude files with specific extension
+EXCLUDE_FILE=.exclude
+# cloud supported, multiple clouds are seperated by `:'
+CLOUDS=local
+
+# interval to sync in second
+# by default, the synchronization time is 15 min
+INTERVAL=900
